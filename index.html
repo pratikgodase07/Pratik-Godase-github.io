@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pratik Godase — Portfolio</title>
+  <meta name="description" content="Portfolio of Pratik Godase — Full‑stack developer & AI/ML enthusiast. Projects, skills, experience, and contact." />
+  <meta name="keywords" content="Pratik Godase, portfolio, web developer, AI, ML, Java, Spring Boot, Angular, MySQL, deep learning" />
+  <meta name="theme-color" content="#111827" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pratik Godase — Portfolio" />
+  <meta property="og:description" content="Full‑stack developer & AI/ML enthusiast." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="C:\Users\hp\OneDrive\Desktop" />
+  <meta property="og:url" content="https://your-domain.example/" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    /* ===== CSS RESET (modernized) ===== */
+    *,*::before,*::after{box-sizing:border-box}
+    *{margin:0}
+    html,body{height:100%}
+    img,svg,video,canvas,audio,iframe,embed,object{display:block;max-width:100%}
+    input,button,textarea,select{font:inherit}
+    a{color:inherit;text-decoration:none}
+
+    /* ===== THEME ===== */
+    :root{
+      --bg:#0b1220;          /* dark slate */
+      --panel:#0f172a;       /* card bg */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e5e7eb;        /* gray-200 */
+      --brand:#22c55e;       /* emerald */
+      --brand-2:#38bdf8;     /* sky */
+      --ring:rgba(34,197,94,.35);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    .light{
+      --bg:#f8fafc;
+      --panel:#ffffff;
+      --muted:#475569;
+      --text:#0f172a;
+      --brand:#0ea5e9;
+      --brand-2:#22c55e;
+      --ring:rgba(14,165,233,.35);
+      --shadow:0 10px 30px rgba(15,23,42,.1);
+    }
+
+    body{
+      background:radial-gradient(1200px 600px at 90% -10%,rgba(56,189,248,.15),transparent 60%),
+                 radial-gradient(1000px 500px at -20% 10%,rgba(34,197,94,.12),transparent 55%),
+                 var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.6;
+      scroll-behavior:smooth;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container{max-width:1100px;margin-inline:auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(10px);background:linear-gradient(to bottom,rgba(11,18,32,.9),rgba(11,18,32,.3))}
+    .light header{background:linear-gradient(to bottom,rgba(248,250,252,.9),rgba(248,250,252,.3))}
+
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .nav a.brand{font-weight:800;letter-spacing:.3px}
+    .pill{display:inline-flex;gap:10px;align-items:center;border:1px solid rgba(148,163,184,.25);padding:8px 12px;border-radius:999px}
+    .pill:hover{border-color:rgba(148,163,184,.6)}
+
+    .navlinks{display:flex;gap:14px;align-items:center}
+    .navlinks a{padding:8px 12px;border-radius:10px}
+    .navlinks a:hover{background:rgba(148,163,184,.12)}
+    .cta{background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#0b1220; font-weight:700}
+    .cta:hover{filter:brightness(1.05)}
+
+    /* ===== HERO ===== */
+    .hero{padding:70px 0}
+    .hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+    .tag{display:inline-flex;gap:8px;align-items:center;background:rgba(148,163,184,.12);border:1px solid rgba(148,163,184,.25);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+    h1{font-size:clamp(28px,6vw,56px);line-height:1.1;margin-top:14px}
+    .lead{font-size:clamp(16px,2.2vw,20px);color:var(--muted);margin-top:12px}
+
+    .card{background:var(--panel);border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero .card{padding:18px}
+
+    .avatar{aspect-ratio:1/1;border-radius:16px;background:linear-gradient(135deg, rgba(56,189,248,.2), rgba(34,197,94,.2)); display:grid; place-items:center}
+    .avatar svg{width:55%;height:55%}
+
+    .btns{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(148,163,184,.25);padding:10px 14px;border-radius:12px}
+    .btn:hover{border-color:rgba(148,163,184,.6)}
+
+    /* ===== SECTIONS ===== */
+    section{padding:64px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:22px}
+    .section-head h2{font-size: clamp(22px,4vw,34px)}
+    .section-head p{color:var(--muted)}
+
+    /* ===== SKILLS ===== */
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{background:rgba(148,163,184,.12);border:1px solid rgba(148,163,184,.25);padding:8px 12px;border-radius:999px}
+
+    /* ===== PROJECTS ===== */
+    .grid-cards{display:grid;gap:18px;grid-template-columns:repeat(12,1fr)}
+    .grid-cards .col-6{grid-column:span 6}
+    .grid-cards .col-4{grid-column:span 4}
+    .project{overflow:hidden}
+    .thumb{aspect-ratio:16/9;background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(34,197,94,.15));display:grid;place-items:center;border-bottom:1px solid rgba(148,163,184,.15)}
+    .thumb svg{width:44%;height:44%}
+    .project .content{padding:16px}
+    .meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:14px;margin-top:6px}
+
+    /* ===== EXPERIENCE / TIMELINE ===== */
+    .timeline{position:relative;margin-top:10px}
+    .timeline::before{content:"";position:absolute;left:16px;top:0;bottom:0;width:2px;background:linear-gradient(var(--brand),transparent)}
+    .titem{position:relative;padding-left:46px;padding-bottom:20px}
+    .titem::before{content:"";position:absolute;left:8px;top:3px;width:18px;height:18px;border-radius:999px;background:var(--panel);border:2px solid var(--brand);box-shadow:0 0 0 4px rgba(34,197,94,.15)}
+    .titem h3{font-size:18px}
+    .titem .where{color:var(--muted);font-size:14px}
+
+    /* ===== CONTACT ===== */
+    form{display:grid;gap:12px}
+    input,textarea{background:transparent;border:1px solid rgba(148,163,184,.35);border-radius:12px;padding:12px 14px;color:var(--text)}
+    input:focus,textarea:focus{outline:2px solid var(--ring);border-color:transparent}
+    textarea{min-height:120px;resize:vertical}
+
+    /* ===== FOOTER ===== */
+    footer{padding:30px 0;color:var(--muted)}
+
+    /* ===== UTIL ===== */
+    .row{display:flex;gap:18px;flex-wrap:wrap}
+    .grow{flex:1 1 300px}
+    .center{display:grid;place-items:center}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 920px){
+      .hero .grid{grid-template-columns:1fr}
+      .grid-cards .col-6, .grid-cards .col-4{grid-column:span 12}
+      .section-head{align-items:start;gap:12px;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav class="container nav" aria-label="Primary">
+      <a class="brand pill" href="#home" aria-label="Go to home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l9 7-9 7-9-7 9-7z" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Pratik<span style="opacity:.6">.dev</span></span>
+      </a>
+      <div class="navlinks" role="menubar">
+        <a role="menuitem" href="#projects">Projects</a>
+        <a role="menuitem" href="#skills">Skills</a>
+        <a role="menuitem" href="#experience">Experience</a>
+        <a role="menuitem" href="#contact">Contact</a>
+        <button id="themeToggle" class="pill" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v2m0 14v2m9-9h-2M5 12H3m13.657-6.657l-1.414 1.414M6.757 17.243l-1.414 1.414m12.728 0l-1.414-1.414M6.757 6.757 5.343 5.343" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="sr-only">Toggle theme</span>
+        </button>
+        <a class="pill cta" href="#contact">Hire me</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home" class="container">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Intro">
+      <div class="grid">
+        <div>
+          <span class="tag"><span aria-hidden="true">🚀</span> Full‑Stack • AI/ML</span>
+          <h1>Hi, I'm <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">Pratik Godase</span>.<br/>I build fast, clean, and intelligent web apps.</h1>
+          <p class="lead">Java (Spring Boot) • Angular • MySQL • Python • CNN/Deep Learning • Flask • React. Final‑year projects in deepfake detection, sign language translation, and more.</p>
+          <div class="btns">
+            <a class="btn" href="#projects" aria-label="See projects">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              View Projects
+            </a>
+            <a class="btn" href="https://github.com/pratikgodase07" target="_blank" rel="noopener" aria-label="Open GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 4.86 3.15 8.98 7.52 10.43.55.1.76-.24.76-.53 0-.26-.01-1.12-.02-2.03-3.06.67-3.71-1.31-3.71-1.31-.5-1.26-1.21-1.6-1.21-1.6-.99-.67.08-.66.08-.66 1.09.08 1.66 1.12 1.66 1.12.98 1.66 2.58 1.18 3.21.9.1-.71.38-1.18.68-1.45-2.44-.28-5.01-1.22-5.01-5.43 0-1.2.43-2.17 1.12-2.94-.11-.27-.48-1.36.1-2.84 0 0 .92-.29 3.02 1.12a10.4 10.4 0 0 1 2.75-.37c.93 0 1.87.12 2.75.37 2.1-1.41 3.01-1.12 3.01-1.12.59 1.48.22 2.57.11 2.84.7.77 1.12 1.74 1.12 2.94 0 4.22-2.58 5.14-5.04 5.41.4.34.73 1.02.73 2.06 0 1.49-.02 2.69-.02 3.06 0 .29.2.64.76.53a10.53 10.53 0 0 0 7.51-10.43C23.02 5.24 18.27.5 12 .5Z"/></svg>
+              GitHub
+            </a>
+            <a class="btn" href="Pratik-Godase-Resume.pdf" download>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Download CV
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="avatar">
+            <!-- Placeholder avatar icon -->
+            <div class="avatar">
+  <img src="Pratik_Godase_Profile_Picture.jpg" alt="Pratik Godase" style="border-radius:16px; width:100%; height:100%; object-fit:cover;">
+</div>
+
+          </div>
+          <div class="row" style="margin-top:12px">
+            <div class="grow pill">Pandharpur, IN</div>
+            <div class="pill">Open to Gurgaon</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" aria-label="Skills">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p>Strong in full‑stack dev and applied ML.</p>
+      </div>
+      <div class="card" style="padding:18px">
+        <div class="chips">
+          <span class="chip">Java • Spring Boot</span>
+          <span class="chip">Angular</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">Python</span>
+          <span class="chip">Flask</span>
+          <span class="chip">React</span>
+          <span class="chip">HTML • CSS • JS</span>
+          <span class="chip">OpenCV</span>
+          <span class="chip">Deep Learning (CNN)</span>
+          <span class="chip">Git • GitHub</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" aria-label="Projects">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p>Selected work. More on GitHub.</p>
+      </div>
+      <div class="grid-cards">
+        <!-- Project 1 -->
+        <article class="card project col-6" tabindex="0">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 4h18v12H3z"/><path d="M7 20h10"/></svg>
+          </div>
+          <div class="content">
+            <h3>Deepfake Detection using CNN</h3>
+            <p class="meta">Python • Flask • TensorFlow</p>
+            <p>Built a web app that flags manipulated faces using a custom CNN pipeline; includes visualization and batch scanning.</p>
+            <div class="btns" style="margin-top:10px">
+              <a class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
+              <a class="btn" href="#" target="_blank" rel="noopener">Source</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 2 -->
+        <article class="card project col-6" tabindex="0">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </div>
+          <div class="content">
+            <h3>Inventory Analyser</h3>
+            <p class="meta">Java • Spring Boot • Angular • MySQL</p>
+            <p>End‑to‑end dashboard for stock tracking, reorder alerts, supplier metrics, and exportable reports.</p>
+            <div class="btns" style="margin-top:10px">
+              <a class="btn" href="#" target="_blank" rel="noopener">Case Study</a>
+              <a class="btn" href="#" target="_blank" rel="noopener">Source</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 3 -->
+        <article class="card project col-4" tabindex="0">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <div class="content">
+            <h3>Sign Language Translator</h3>
+            <p class="meta">OpenCV • Python</p>
+            <p>Real‑time hand‑sign detection with text/voice output.</p>
+          </div>
+        </article>
+        <!-- Project 4 -->
+        <article class="card project col-4" tabindex="0">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7h18M6 3h12M4 11h16M6 15h12M8 19h8"/></svg>
+          </div>
+          <div class="content">
+            <h3>Online Billing Software</h3>
+            <p class="meta">Python • GUI</p>
+            <p>Lightweight invoicing with tax calculation and print‑ready bills.</p>
+          </div>
+        </article>
+        <!-- Project 5 -->
+        <article class="card project col-4" tabindex="0">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 7h14v10H5z"/><path d="M9 17v-4h6v4M9 9h6"/></svg>
+          </div>
+          <div class="content">
+            <h3>Cab Booking System</h3>
+            <p class="meta">Java • Admin Panel</p>
+            <p>Auth, admin dashboard, and route pricing with surge logic.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" aria-label="Experience">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p>Internships & roles.</p>
+      </div>
+      <div class="card" style="padding:18px">
+        <div class="timeline">
+          <div class="titem">
+            <h3>Python & Web Dev Intern <span class="where">— Rudra Infotech (15 days)</span></h3>
+            <p class="where">Solapur • 2024</p>
+            <p>Worked on Python and web dev tasks; contributed to small web utilities and bug fixes.
+            </p>
+          </div>
+          <div class="titem">
+            <h3>Frontend / SQL Intern <span class="where">— Softech Coders (3 months)</span></h3>
+            <p class="where">Pandharpur • 2024</p>
+            <p>Built responsive UIs (HTML/CSS/JS) and wrote SQL queries for reporting.</p>
+          </div>
+          <div class="titem">
+            <h3>Hackathon Organizer & Event Lead</h3>
+            <p class="where">College Activities • 2022–2024</p>
+            <p>Led organizing committees, managed budgets as treasurer, and coordinated NSS events.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education" aria-label="Education">
+      <div class="section-head">
+        <h2>Education</h2>
+        <p>Degree & relevant coursework.</p>
+      </div>
+      <div class="row">
+        <div class="card grow" style="padding:18px">
+          <h3>B.Tech — Computer Science & Engineering</h3>
+          <p class="meta">Key courses: Compiler Construction, Big Data Analytics, Software Testing & QA.</p>
+        </div>
+        <div class="card grow" style="padding:18px">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Intro to Machine Learning</li>
+            <li>Git & GitHub Essentials</li>
+            <li>SQL for Data Work</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" aria-label="Contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Have a project or role in mind? Let's talk.</p>
+      </div>
+      <div class="row">
+        <div class="card grow" style="padding:18px">
+          <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+            <label class="sr-only" for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+            <label class="sr-only" for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can I help?" required></textarea>
+
+            <button class="pill cta" type="submit">Send Message</button>
+          </form>
+        </div>
+        <div class="card grow" style="padding:18px">
+          <h3>Elsewhere</h3>
+          <div class="btns" style="margin-top:8px">
+            <a class="btn" href="mailto:pratikgodasecse07@gmail.com">Email</a>
+            <a class="btn" href="https://github.com/pratikgodase07" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/pratik-godase-cse/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row" style="align-items:center;justify-content:space-between">
+        <p>© <span id="year"></span> Pratik Godase. All rights reserved.</p>
+        <a class="pill" href="#home" aria-label="Back to top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JSON‑LD (Basic) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pratik Godase",
+    "url": "https://your-domain.example/",
+    "sameAs": [
+      "https://github.com/pratikgodase07",
+      "https://www.linkedin.com/in/pratik-godase-cse/"
+    ],
+    "jobTitle": "Full‑Stack Developer",
+    "alumniOf": "B.E. Electronics & Telecommunication",
+    "knowsAbout": ["Java", "Spring Boot", "Angular", "MySQL", "Python", "Deep Learning"]
+  }
+  </script>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme (dark/light) with localStorage
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme === 'light') document.documentElement.classList.add('light');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      localStorage.setItem('theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
+    });
+
+    // Accessibility: keyboard focus outline helper
+    function handleFirstTab(e){
+      if(e.key === 'Tab'){
+        document.body.classList.add('user-tabbing');
+        window.removeEventListener('keydown', handleFirstTab);
+      }
+    }
+    window.addEventListener('keydown', handleFirstTab);
+
+    // Simple scroll reveal animation
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.animate([
+            {opacity:0, transform:'translateY(12px)'},
+            {opacity:1, transform:'translateY(0)'}
+          ], {duration:600, easing:'cubic-bezier(.22,.61,.36,1)'});
+          observer.unobserve(entry.target);
+        }
+      })
+    },{threshold:.08});
+    document.querySelectorAll('section .card, section .grid-cards > *').forEach(el=>observer.observe(el));
+
+    // Optional: prevent empty links from scrolling to top
+    document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
+  </script>
+</body>
+</html>
